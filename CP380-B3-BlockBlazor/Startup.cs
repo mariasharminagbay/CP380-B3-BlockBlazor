@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CP380_B1_BlockList.Models;
 
 namespace CP380_B3_BlockBlazor
 {
@@ -30,11 +31,15 @@ namespace CP380_B3_BlockBlazor
             //
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddHttpClient();
+
             //
             // TODO: ADD SINGLETONS FOR:
             //       - pending transactions service
             //       - block list service
             //
+            services.AddSingleton<BlockService>();
+            services.AddSingleton<PendingTransactionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
